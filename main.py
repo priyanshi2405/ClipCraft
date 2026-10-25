@@ -9,12 +9,12 @@ def home():
 
 @app.route("/create", methods=['GET' , 'POST'])
 def create():
-    myid = uuid.uuid()
+    myid = uuid.uuid1()
     if request.method == "POST":
         print(request.files.keys())
         for keys, values in request.files.items():
             print(key,value)
-            
+
     return render_template("create.html" , myid=myid)
 
 @app.route("/gallery")
