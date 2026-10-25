@@ -8,6 +8,8 @@ def home():
 
 @app.route("/create", methods=['GET' , 'POST'])
 def create():
+    if request.method == "POST":
+        print(request.files)
     return render_template("create.html")
 
 @app.route("/gallery")
