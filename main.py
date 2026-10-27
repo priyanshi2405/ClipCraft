@@ -1,5 +1,13 @@
 from flask import Flask, render_template , request
 import uuid
+from werkzeug.utils import secure_filename
+import os
+
+UPLOAD_FOLDER = 'USER_UPLOADS'
+ALLOWED_EXTENSIONS = { 'png', 'jpg', 'jpeg', }
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app = Flask(__name__)
 
@@ -17,6 +25,13 @@ def create():
         for key, value in request.files.items():
             print(key,value)
             # upload the file
+            file = request.files[key]
+            if file :
+                filename = secure_filename(file.filename)
+                if(not(os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], rec_id)))):
+                    os.mkdir(os.path.join(app.config['UPLOAD_FOLDER'], rec_id))
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], rec_id,  filename))
+
 
     return render_template("create.html" , myid=myid)
 
