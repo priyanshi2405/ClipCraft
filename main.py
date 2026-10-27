@@ -32,7 +32,8 @@ def create():
                     os.mkdir(os.path.join(app.config['UPLOAD_FOLDER'], rec_id))
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], rec_id,  filename))
                 # capture the discription and save it to the file
-                with open(os.)
+                with open(os.path.join(app.config['UPLOAD_FOLDER'], rec_id, "dec.txt"), "w") as f:
+                    f.write(desc)
 
 
     return render_template("create.html" , myid=myid)
