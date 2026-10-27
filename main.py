@@ -31,6 +31,8 @@ def create():
                 if(not(os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], rec_id)))):
                     os.mkdir(os.path.join(app.config['UPLOAD_FOLDER'], rec_id))
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], rec_id,  filename))
+                # capture the discription and save it to the file
+                with open(os.)
 
 
     return render_template("create.html" , myid=myid)
