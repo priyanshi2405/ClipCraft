@@ -3,13 +3,13 @@ import uuid
 from werkzeug.utils import secure_filename
 import os
 
-UPLOAD_FOLDER = 'USER_UPLOADS'
-ALLOWED_EXTENSIONS = { 'png', 'jpg', 'jpeg', }
+UPLOAD_FOLDER = 'user_uploads'
+ALLOWED_EXTENSIONS = { 'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-app = Flask(__name__)
+
 
 @app.route("/")
 def home():
