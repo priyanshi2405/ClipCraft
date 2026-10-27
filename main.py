@@ -12,8 +12,11 @@ def create():
     myid = uuid.uuid1()
     if request.method == "POST":
         print(request.files.keys())
+        rec_id = request.form.get("uuid")
+        desc = request.form.get("text")
         for key, value in request.files.items():
             print(key,value)
+            # upload the file
 
     return render_template("create.html" , myid=myid)
 
